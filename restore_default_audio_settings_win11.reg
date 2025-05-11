@@ -1,0 +1,270 @@
+Windows Registry Editor Version 5.00
+
+; --- Enhanced Default Audio Settings Restorer for Windows 11 ---
+; This file resets all audio-related registry settings to Windows 11 defaults
+; and removes any custom optimizations that may have been applied
+; Version 2.0 - Complete Audio Restoration
+
+; Reset exclusive mode and bit-perfect playback settings
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio]
+"DisableProtectedAudioDG"=dword:00000000
+"EnableFrameServerMode"=dword:00000001
+"DisableAudioProxySvc"=dword:00000000
+"MinimumOffloadBufferDurationMSec"=-
+"DisableDynamicDevices"=-
+"HDAudioOptimizedDefaults"=-
+"DisablePerChannelStreamSelection"=-
+"AudioFloatPrecision"=-
+"DisableDeviceEffects"=-
+"DisableAudioTimeStretch"=-
+"MaxAudioResamplingQuality"=-
+"ChannelIntegrityMode"=-
+"SpatialAudioHighPrecision"=-
+
+; Reset hardware acceleration for audio processing
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\AudioPolicy]
+"AudioProcessingPerPolicy"=-
+"DisableAPOEffects"=-
+"PeakPollingIntervalMs"=-
+"ChannelSeparationQuality"=-
+"PrecisionSamplingMode"=-
+
+; Re-enable audio enhancements
+[HKEY_CURRENT_USER\Software\Microsoft\Multimedia\Audio]
+"UserDuckingPreference"=dword:00000000
+"DisableDucking"=-
+"HighPrecisionPlayback"=-
+"ImagingEnhancement"=-
+
+; Reset spatial sound settings
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Audio]
+"SpatialAudioMode"=-
+"DisableAudioDithering"=-
+"DisableUpmixing"=-
+"HighPrecisionStereoMode"=-
+"AdvancedStereoImaging"=-
+
+; Reset render device settings
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\MMDevices\Audio\Render]
+"DisableLoudnessEqualization"=-
+"DisableAllEffects"=-
+"DisableVolumeControl"=-
+"DisableSpatialAudio"=-
+"DisableSignalProcessing"=-
+"BypassDynamicRangeCompression"=-
+"EnhanceChannelSeparation"=-
+"PreserveStereoPhase"=-
+
+; Reset Windows audio processing
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\MTCUVC]
+"EnableMtcUvc"=dword:00000001
+
+; Reset audio path filters to default
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4d36e96c-e325-11ce-bfc1-08002be10318}]
+"UpperFilters"=-
+"LowerFilters"=-
+
+; Reset audio device display settings
+[HKEY_CURRENT_USER\Software\Microsoft\Multimedia\Audio\DeviceCpl]
+"ShowHideDevices"=-
+"ShowDisabledDevices"=-
+"ShowDisconnectedDevices"=-
+"DisableAGC"=-
+"DisableDSPProcessing"=-
+"EnableCustomFormatSelection"=-
+"AllowExclusiveMode"=-
+"StereoEnhancementMode"=-
+
+; Re-enable audio throttling
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\f15576e8-98b7-4186-b944-eafa664402d9]
+"Attributes"=dword:00000001
+
+; Re-enable audio performance logging
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-Audio/Performance]
+"Enabled"=dword:00000001
+
+; Reset audio services to default
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Audiosrv]
+"DelayedAutostart"=dword:00000001
+"Start"=dword:00000002
+"ErrorControl"=-
+"Type"=-
+"StereoStagingQuality"=-
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AudioEndpointBuilder]
+"DelayedAutostart"=dword:00000000
+"Start"=dword:00000002
+"ErrorControl"=-
+"Type"=-
+"StereoImagingPrecision"=-
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AudioSrv]
+"DelayedAutostart"=dword:00000000
+"Start"=dword:00000002
+
+; Reset Windows Audio Device Graph Isolation service
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AudioIsolationService]
+"Start"=dword:00000003
+"ErrorControl"=-
+"IsolatedChannelProcessing"=-
+
+; Reset USB audio settings to defaults
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\usbstor]
+"DisableOnSoftRemove"=dword:00000001
+"EnableSelectiveSuspend"=-
+"TurnOffUsbOnCsExit"=-
+"DisableProtocolStall"=-
+"IsochronousTransferPriority"=-
+"AudioStreamOptimization"=-
+
+; Reset USB flags to default
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\usbflags]
+"IgnoreHWSerNum"=-
+
+; Reset USB controller parameters
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USBXHCI\Parameters]
+"IdleEnable"=-
+"JitterReduction"=-
+"StreamingDataTransferSize"=-
+"DualClockStabilization"=-
+"HighBandwidthIsoMode"=-
+
+; Reset USB Audio 2.0 service
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\usbaudio2]
+"Start"=dword:00000003
+
+; Reset USB services
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USB]
+"DisableSelectiveSuspend"=-
+"DisablePowerSaving"=-
+"EnableTransferOptimization"=-
+"HighBandwidthTransferMode"=-
+"IsochronousTransferPriority"=-
+
+; Reset USB hub settings
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\usbhub\HubSettings]
+"DisableOemPowersaveModemAudio"=-
+"AlwaysUseHighPollingRate"=-
+"DisablePowerManagement"=-
+"IsochronousTransferOptimization"=-
+"EnableBurstTransfers"=-
+
+; Restore system sounds
+[HKEY_CURRENT_USER\AppEvents\Schemes]
+"(Default)"="Windows Default"
+
+[HKEY_CURRENT_USER\AppEvents\Schemes\Apps\.Default\.Default\.Current]
+"(Default)"=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,00,5c,00,6d,00,65,00,64,00,69,00,61,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,00,20,00,50,00,6f,00,70,00,75,00,70,00,2e,00,77,00,61,00,76,00,00,00
+
+[HKEY_CURRENT_USER\AppEvents\Schemes\Apps\.Default\SystemAsterisk\.Current]
+"(Default)"=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,00,5c,00,6d,00,65,00,64,00,69,00,61,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,00,20,00,42,00,61,00,63,00,6b,00,67,00,72,00,6f,00,75,00,6e,00,64,00,2e,00,77,00,61,00,76,00,00,00
+
+; Reset Windows 11 notification sounds
+[HKEY_CURRENT_USER\AppEvents\Schemes\Apps\.Default\Notification.Default\.Current]
+"(Default)"=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,00,5c,00,6d,00,65,00,64,00,69,00,61,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,00,5c,00,57,00,69,00,6e,00,64,00,6f,00,77,00,73,00,20,00,4e,00,6f,00,74,00,69,00,66,00,69,00,63,00,61,00,74,00,69,00,6f,00,6e,00,2e,00,77,00,61,00,76,00,00,00
+
+; Reset multimedia system profile to default
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"NetworkThrottlingIndex"=dword:0000000a
+"SystemResponsiveness"=dword:00000014
+"AlwaysOn"=-
+"NoLazyMode"=-
+"LazyModeTimeout"=-
+"IdleDetectionMode"=-
+"MaxThreadsPerProcess"=-
+"StereoStagingEnhancement"=-
+"ChannelLocalizationAccuracy"=-
+
+; Reset audio task priority to default
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Audio]
+"Affinity"=dword:00000000
+"Background Only"="False"
+"Clock Rate"=dword:00002710
+"GPU Priority"=dword:00000002
+"Priority"=dword:00000001
+"Scheduling Category"="Medium"
+"SFIO Priority"="Normal"
+"Latency Sensitive"=-
+"BackgroundPriority"=-
+"BackgroundPriorityFactor"=-
+"StereoChannelProcessingMode"=-
+"DualChannelAccuracy"=-
+
+; Reset thread priority control
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl]
+"Win32PrioritySeparation"=dword:00000002
+"IRQ8Priority"=-
+"IRQPriority"=-
+"AudioIrqBoostEnable"=-
+
+; Reset power settings
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0d7e1197-0e77-49f8-9c63-decbfda8dca0]
+"Attributes"=-
+"ACSettingIndex"=-
+"DCSettingIndex"=-
+"PrecisionMode"=-
+"FMaximumPerformance"=-
+"HighPrecisionMode"=-
+
+; Reset Windows 11 audio processing settings
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\AudioPolicy]
+"AudioProcessingPerPolicy"=-
+
+; Reset dynamic audio policy handling
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Audio]
+"AllowDynamicAudioDevicePolicies"=-
+"DisableAudioEndpointSharing"=-
+"DisableChannelDownmixing"=-
+"EnhanceStereoSeparation"=-
+
+; Reset API routing
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\DriverPolicies]
+"DisableApiRouting"=-
+"DisableProtectedContentLoopback"=-
+"DisableAudioProxyForSystemEffects"=-
+"EnableExclusiveMode"=-
+"ImagingPrecisionLevel"=-
+
+; Reset audio effects
+[HKEY_CURRENT_USER\Software\Microsoft\Multimedia\Audio\Effects]
+"DisableAllAudioEffects"=-
+"DisableProcessing"=-
+"PreserveStereoField"=-
+
+; Reset automatic room correction
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\Spatial]
+"DisableRoomCorrection"=-
+"DisableSpatialProcessing"=-
+"HighPrecisionStereoMode"=-
+"PreserveStereoImage"=-
+
+; Reset audio input enhancements
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Devices\AudioInput]
+"DisableAudioProcessing"=-
+"DisableNoiseReduction"=-
+"DisableEchoCancellation"=-
+"DisableBeamForming"=-
+"DisableAGC"=-
+"DisableCrosstalk"=-
+
+; Reset audio endpoint policy flags
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\MMDevices\Audio\Capture]
+"DisableEndpointPolicyFlagsProcessing"=-
+"DisableAutoFormat"=-
+"DisableDownmixing"=-
+
+; Reset memory management settings
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management]
+"LargeSystemCache"=-
+"DisablePagingExecutive"=-
+"SystemCacheReservePages"=-
+"AudioPoolExtraReservation"=-
+
+; Reset timer resolution settings
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel]
+"GlobalTimerResolutionRequests"=-
+"TimerPrecisionLevel"=-
+"EnablePrecisionEvents"=-
+
+; Remove custom stereo enhancement settings
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Audio\StereoEnhancement]
